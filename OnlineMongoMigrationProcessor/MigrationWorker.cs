@@ -63,7 +63,7 @@ namespace OnlineMongoMigrationProcessor
 
             TimeSpan backoff = TimeSpan.FromSeconds(2);
 
-            //encoding speacial characters
+            //encoding special characters
             sourceConnectionString = Helper.EncodeMongoPasswordInConnectionString(sourceConnectionString);
             targetConnectionString = Helper.EncodeMongoPasswordInConnectionString(targetConnectionString);
 
