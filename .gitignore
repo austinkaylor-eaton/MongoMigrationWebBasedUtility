@@ -11,3 +11,5 @@
 /OnlineMongoMigrationProcessor/bin
 /publish
 /.vs/ProjectEvaluation
+.idea/
+*.sln.DotSettings.user
