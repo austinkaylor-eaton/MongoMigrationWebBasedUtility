@@ -80,7 +80,10 @@ namespace OnlineMongoMigrationProcessor
                 _migrationProcessor?.StopProcessing();
                 _migrationProcessor = null;
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
 
             _job = job;
             _migrationCancelled = false;
