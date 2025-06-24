@@ -13,3 +13,4 @@
 /.vs/ProjectEvaluation
 .idea/
 *.sln.DotSettings.user
+/PlaygroundConsole/*
