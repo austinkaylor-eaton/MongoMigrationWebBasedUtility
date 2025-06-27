@@ -11,6 +11,7 @@ using System.ComponentModel.DataAnnotations;
 using MongoDB.Bson.Serialization.Serializers;
 using System.Xml.Linq;
 using MongoDB.Bson.IO;
+using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
 using DataType = OnlineMongoMigrationProcessor.Models.DataType;
 
