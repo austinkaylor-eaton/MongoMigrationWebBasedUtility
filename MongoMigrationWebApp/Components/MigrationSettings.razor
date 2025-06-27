@@ -48,10 +48,10 @@
 @code
 {
     [Parameter]
-    public OnlineMongoMigrationProcessor.MigrationSettings? configuration { get; set; }
+    public OnlineMongoMigrationProcessor.Models.MigrationSettings? configuration { get; set; }
 
     [Parameter]
-    public EventCallback<OnlineMongoMigrationProcessor.MigrationSettings> OnConfigurationSaved { get; set; }
+    public EventCallback<OnlineMongoMigrationProcessor.Models.MigrationSettings> OnConfigurationSaved { get; set; }
 
     private string errorMessage = string.Empty;
 

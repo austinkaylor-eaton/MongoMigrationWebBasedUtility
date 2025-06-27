@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using OnlineMongoMigrationProcessor.Models;
 
 #pragma warning disable CS8602
 #pragma warning disable CS8604

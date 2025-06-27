@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Collections.Generic;
+using OnlineMongoMigrationProcessor.Models;
 
 namespace OnlineMongoMigrationProcessor
 {

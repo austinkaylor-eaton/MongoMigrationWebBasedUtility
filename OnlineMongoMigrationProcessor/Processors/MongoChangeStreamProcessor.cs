@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Threading;
 using System.Threading.Tasks;
+using OnlineMongoMigrationProcessor.Models;
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 
