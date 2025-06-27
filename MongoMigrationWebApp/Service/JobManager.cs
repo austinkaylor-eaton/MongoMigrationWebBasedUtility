@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using OnlineMongoMigrationProcessor;
+﻿using OnlineMongoMigrationProcessor;
 using OnlineMongoMigrationProcessor.Helpers;
 using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
@@ -12,9 +10,9 @@ namespace MongoMigrationWebApp.Service;
 
 public class JobManager
 {
-    private JobList? _jobList;
+    private readonly JobList? _jobList;
     public MigrationWorker? MigrationWorker { get; set; }
-    private List<LogObject>? _logBucket { get; set; }
+    private List<LogObject>? LogBucket { get; set; }
 
     public JobManager()
     {
@@ -84,7 +82,7 @@ public class JobManager
     {
         try
         {
-            System.IO.Directory.Delete($"{Helper.GetWorkingFolder()}mongodump\\{jobId}",true);
+            Directory.Delete($"{Helper.GetWorkingFolder()}mongodump\\{jobId}",true);
         }
         catch
         {
