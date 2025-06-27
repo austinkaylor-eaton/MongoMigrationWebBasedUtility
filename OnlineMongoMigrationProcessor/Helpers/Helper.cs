@@ -13,8 +13,7 @@ namespace OnlineMongoMigrationProcessor.Helpers;
 
 public static class Helper
 {
-
-    static string _workingFolder = string.Empty;
+    private static string _workingFolder = string.Empty;
 
     private static double GetFolderSizeInGB(string folderPath)
     {
