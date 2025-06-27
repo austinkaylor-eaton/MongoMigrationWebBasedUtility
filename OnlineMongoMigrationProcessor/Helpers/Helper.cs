@@ -32,12 +32,12 @@ public static class Helper
         }
         catch (UnauthorizedAccessException e)
         {
-            Console.WriteLine($"Access denied: {e.ToString()}");
+            Console.WriteLine($"Access denied: {e}");
             return 0;
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error: {e.ToString()}");
+            Console.WriteLine($"Error: {e}");
             return 0;
         }
     }
@@ -213,7 +213,7 @@ public static class Helper
 
             // Reconstruct the connection string with updated parameters
             var newQuery = queryParams.ToString();
-            var updatedConnectionString = connectionString.Replace(uri.Query.ToString(), "?" + newQuery);
+            var updatedConnectionString = connectionString.Replace(uri.Query, "?" + newQuery);
 
             return updatedConnectionString;
         }
