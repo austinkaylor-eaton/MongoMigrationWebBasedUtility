@@ -2,23 +2,19 @@
 using System.Threading.Tasks;
 
 
-namespace MongoMigrationWebApp.Service
+namespace MongoMigrationWebApp.Service;
+
+public class FileService
 {
-    public class FileService
+    private readonly HttpClient _httpClient;
+
+    public FileService(HttpClient httpClient)
     {
-        private readonly HttpClient _httpClient;
+        _httpClient = httpClient;
+    }
 
-        public FileService(HttpClient httpClient)
-        {
-            _httpClient = httpClient;
-        }
-
-       string GetFileDownloadUrl(string fileName)
-        {
-            return $"/api/File/download/{fileName}";
-        }
+    string GetFileDownloadUrl(string fileName)
+    {
+        return $"/api/File/download/{fileName}";
     }
 }
-
-
-
