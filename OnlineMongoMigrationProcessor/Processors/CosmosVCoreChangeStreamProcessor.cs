@@ -2,7 +2,7 @@
 using MongoDB.Driver;
 using Newtonsoft.Json.Linq;
 
-namespace PlaygroundConsole;
+namespace OnlineMongoMigrationProcessor.Processors;
 
 public static class CosmosVCoreChangeStreamProcessor
 {
