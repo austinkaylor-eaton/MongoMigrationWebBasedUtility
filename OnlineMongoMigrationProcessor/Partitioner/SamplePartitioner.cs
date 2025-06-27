@@ -1,21 +1,10 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Concurrent;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
-using MongoDB.Bson.Serialization.Serializers;
-using System.Xml.Linq;
-using MongoDB.Bson.IO;
 using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
 using DataType = OnlineMongoMigrationProcessor.Models.DataType;
 
-namespace OnlineMongoMigrationProcessor
+namespace OnlineMongoMigrationProcessor.Partitioner
 {
     public static class SamplePartitioner
     {
