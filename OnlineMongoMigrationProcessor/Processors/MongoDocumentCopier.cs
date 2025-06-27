@@ -1,19 +1,14 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Reflection.Metadata;
-using System.Threading;
-using System.Threading.Tasks;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using OnlineMongoMigrationProcessor.Helpers;
 using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
 using OnlineMongoMigrationProcessor.Partitioner;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-namespace OnlineMongoMigrationProcessor
+namespace OnlineMongoMigrationProcessor.Processors
 {
     public class MongoDocumentCopier
     {
