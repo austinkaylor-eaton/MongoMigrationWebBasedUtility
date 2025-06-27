@@ -1,9 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using OnlineMongoMigrationProcessor.Helpers;
 using OnlineMongoMigrationProcessor.Interface;
 using OnlineMongoMigrationProcessor.Logging;
@@ -14,7 +10,7 @@ using OnlineMongoMigrationProcessor.Partitioner;
 #pragma warning disable CS8604
 #pragma warning disable CS8600
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
-namespace OnlineMongoMigrationProcessor
+namespace OnlineMongoMigrationProcessor.Processors
 {
     internal class CopyProcessor : IMigrationProcessor
     {
