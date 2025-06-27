@@ -1,20 +1,12 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using OnlineMongoMigrationProcessor.Helpers;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using OnlineMongoMigrationProcessor.Interface;
 using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
 using OnlineMongoMigrationProcessor.Partitioner;
 
-
-namespace OnlineMongoMigrationProcessor
+namespace OnlineMongoMigrationProcessor.Processors
 {
     internal class DumpRestoreProcessor : IMigrationProcessor
     {
