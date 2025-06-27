@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using OnlineMongoMigrationProcessor.Helpers;
 using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
 
