@@ -1,19 +1,12 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Threading;
-using System.Threading.Tasks;
 using OnlineMongoMigrationProcessor.Helpers;
 using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
 
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
 
-namespace OnlineMongoMigrationProcessor
+namespace OnlineMongoMigrationProcessor.Processors
 {
     internal class MongoChangeStreamProcessor
     {
