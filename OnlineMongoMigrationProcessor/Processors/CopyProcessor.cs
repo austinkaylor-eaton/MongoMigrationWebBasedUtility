@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using OnlineMongoMigrationProcessor.Helpers;
+using OnlineMongoMigrationProcessor.Interface;
 using OnlineMongoMigrationProcessor.Logging;
 using OnlineMongoMigrationProcessor.Models;
 

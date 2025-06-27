@@ -1,9 +1,6 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using System.Collections.Generic;
-using OnlineMongoMigrationProcessor.Models;
+﻿using OnlineMongoMigrationProcessor.Models;
 
-namespace OnlineMongoMigrationProcessor
+namespace OnlineMongoMigrationProcessor.Interface
 {
     public interface IMigrationProcessor
     {
