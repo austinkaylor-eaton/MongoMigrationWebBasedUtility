@@ -2,7 +2,7 @@
 
 namespace OnlineMongoMigration.BlazorApp.Components.Pages;
 
-public partial class GetEnvironmentComponent : ComponentBase
+public partial class GetEnvironmentComponent: ComponentBase
 {
     [Inject]
     private IWebHostEnvironment WebHostEnvironment { get; set; }
