@@ -122,6 +122,7 @@ namespace OnlineMongoMigrationProcessor
 
             bool continueProcessing = true;
 
+            // This is where the MigrationUnits for the MigrationJob are created
             if (_job.MigrationUnits == null)
             {
                 _job.MigrationUnits = new List<MigrationUnit>();
@@ -129,6 +130,7 @@ namespace OnlineMongoMigrationProcessor
 
             if (_job.MigrationUnits.Count == 0)
             {
+                // For each collection entered by the user in the input, create a new MigrationUnit for the MigrationJob
                 foreach (var fullName in collectionsInput)
                 {
                     if (_migrationCancelled) return;
@@ -234,7 +236,7 @@ namespace OnlineMongoMigrationProcessor
                             }
                             if (unit.MigrationChunks == null || unit.MigrationChunks.Count == 0)
                             {
-
+                                // Create the list of migration chunks here based on the database name and collection name
                                 var chunks = await PartitionCollection(unit.DatabaseName, unit.CollectionName);
 
                                 Log.WriteLine($"{unit.DatabaseName}.{unit.CollectionName} has {chunks.Count} Chunks");
@@ -334,7 +336,7 @@ namespace OnlineMongoMigrationProcessor
 
         private async Task<List<MigrationChunk>> PartitionCollection(string databaseName, string collectionName, string idField = "_id")
         {
-
+            // TODO: Make a model for this. Something maybe called CollectionStats or similar
             var stas=await MongoHelper.GetCollectionStatsAsync(_sourceClient, databaseName, collectionName);
 
             long documentCount = stas.DocumentCount;
@@ -349,7 +351,7 @@ namespace OnlineMongoMigrationProcessor
             long targetChunkSizeBytes = Config.ChunkSizeInMb * 1024 * 1024;
             var totalChunksBySize = (int)Math.Ceiling((double)totalCollectionSizeBytes / targetChunkSizeBytes);
 
-
+            // This is where the chunking logic is determined based on the collection size and document count
             if (_job.UseMongoDump)
             {
                 totalChunks = totalChunksBySize;

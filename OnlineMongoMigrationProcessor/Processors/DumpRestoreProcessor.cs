@@ -67,7 +67,7 @@ namespace OnlineMongoMigrationProcessor.Processors
             string colName = item.CollectionName;
 
             // Create mongodump output folder if it does not exist
-            string folder = $"{_mongoDumpOutputFolder}\\{jobId}\\{Helper.SafeFileName($"{dbName}.{colName}")}";
+            string folder = $"{_mongoDumpOutputFolder}\\{jobId}\\{Helper.SafeFileName($"{dbName}")}\\{Helper.SafeFileName($"{colName}")}";
             Directory.CreateDirectory(folder);
 
             var database = _sourceClient.GetDatabase(dbName);
@@ -111,7 +111,11 @@ namespace OnlineMongoMigrationProcessor.Processors
                         while (dumpAttempts < maxRetries && !_executionCancelled && continueProcessing && _job.CurrentlyActive)
                         {
                             dumpAttempts++;
-                            string args = $" --uri=\"{sourceConnectionString}\" --gzip --db={dbName} --collection={colName}  --out {folder}\\{i}.bson";
+                            //string args = $" --uri=\"{sourceConnectionString}\" --gzip --db={dbName} --collection={colName} --out {folder}\\chunk-{i}";
+                            // Use --archive instead of --out for mongodump
+                            // --archive=test.20150715.gz
+                            string args = $" --uri=\"{sourceConnectionString}\" --gzip --db={dbName} --collection={colName} --archive={folder}\\chunk-{i}.gz";
+                            //string args = $" --uri=\"{sourceConnectionString}\" --gzip --nsInclude={dbName}.{colName} --archive={folder}\\chunk-{i}.gz";
                             try
                             {
                                 //checking if there are too many downloads or disk full. Caused by limited uploads.
@@ -166,8 +170,8 @@ namespace OnlineMongoMigrationProcessor.Processors
                                     docCount = Math.Max(item.ActualDocCount, item.EstimatedDocCount);
                                 }
 
-                                if (Directory.Exists($"folder\\{i}.bson"))
-                                    Directory.Delete($"folder\\{i}.bson", true);
+                                if (Directory.Exists($"{folder}\\chunk-{i}"))
+                                    Directory.Delete($"{folder}\\chunk-{i}", true);
 
                                 var task = Task.Run(() => _processExecutor.Execute(_jobs, item, item.MigrationChunks[i],i, initialPercent, contributionFactor, docCount, $"{_toolsLaunchFolder}\\mongodump.exe", args));
                                 task.Wait(); // Wait for the task to complete
@@ -283,7 +287,7 @@ namespace OnlineMongoMigrationProcessor.Processors
 
             TimeSpan backoff = TimeSpan.FromSeconds(2);
 
-            string folder = $"{_mongoDumpOutputFolder}\\{jobId}\\{Helper.SafeFileName($"{dbName}.{colName}")}";
+            string folder = $"{_mongoDumpOutputFolder}\\{jobId}\\{Helper.SafeFileName($"{dbName}")}\\{Helper.SafeFileName($"{colName}")}";
 
             Log.WriteLine($"{dbName}.{colName} Uploader started");
 
@@ -301,7 +305,9 @@ namespace OnlineMongoMigrationProcessor.Processors
 
                         if (!item.MigrationChunks[i].IsUploaded == true && item.MigrationChunks[i].IsDownloaded == true)
                         {
-                            string args = $" --uri=\"{targetConnectionString}\" --gzip {folder}\\{i}.bson";
+                            //string args = $" --uri=\"{targetConnectionString}\" --gzip {folder}\\chunk-{i}";
+                            // Use --archive instead of --out for mongorestore
+                            string args = $" --uri=\"{targetConnectionString}\" --gzip --nsInclude={dbName}.{colName} --archive={folder}\\chunk-{i}.gz";
 
                             // If first item, drop collection, else append. Also No drop in AppendMode
                             if (i == 0 && !_job.AppendMode)
@@ -403,7 +409,7 @@ namespace OnlineMongoMigrationProcessor.Processors
 
                                             try
                                             {
-                                                Directory.Delete($"{folder}\\{i}.bson", true);
+                                                Directory.Delete($"{folder}\\{i}", true);
                                             }
                                             catch { }
                                         }                                        

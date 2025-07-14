@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoMigrationWebApp", "Mon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineMongoMigration.BlazorApp", "OnlineMongoMigration.BlazorApp\OnlineMongoMigration.BlazorApp.csproj", "{DC5CFD10-1884-4D4E-BDDA-D849CC5F8E60}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoMigrationConsoleApp", "MongoMigrationConsoleApp\MongoMigrationConsoleApp.csproj", "{B6A3A9DB-3966-41FF-9C6C-C936DB552D29}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{DC5CFD10-1884-4D4E-BDDA-D849CC5F8E60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC5CFD10-1884-4D4E-BDDA-D849CC5F8E60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC5CFD10-1884-4D4E-BDDA-D849CC5F8E60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A3A9DB-3966-41FF-9C6C-C936DB552D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A3A9DB-3966-41FF-9C6C-C936DB552D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A3A9DB-3966-41FF-9C6C-C936DB552D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A3A9DB-3966-41FF-9C6C-C936DB552D29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,7 +3,14 @@
 #pragma warning disable CS8618
 public class MigrationChunk
 {
+    /// <summary>
+    /// The end ID of the chunk, exclusive.
+    /// </summary>
     public string? Lt { get; set; }
+
+    /// <summary>
+    /// The start ID of the chunk, inclusive.
+    /// </summary>
     public string? Gte { get; set; }
     public bool? IsDownloaded { get; set; }
     public bool? IsUploaded { get; set; }

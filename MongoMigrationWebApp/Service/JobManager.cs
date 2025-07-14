@@ -10,6 +10,14 @@ namespace MongoMigrationWebApp.Service;
 
 public class JobManager
 {
+    /// <summary>
+    /// A JobManager is responsible for managing migration jobs.
+    /// </summary>
+    /// <remarks>
+    /// The job list is loaded from a JSON file located in the migrationjobs directory. <br/>
+    /// The job list is saved to the same file when changes are made. <br/>
+    /// The job list
+    /// </remarks>
     private readonly JobList? _jobList;
     public MigrationWorker? MigrationWorker { get; set; }
     private List<LogObject>? LogBucket { get; set; }
